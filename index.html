@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BrowserBenchmark</title><meta charset="utf-8"/>
+<style>
+    .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    .main {
+        font-family: sans-serif;
+    }
+</style>
+<script type="text/javascript">
+    function sum() {
+        var a = performance.now();
+        var sum = 0;
+        var i;
+        var j;
+        for (i = 0; i < 100000; i++) {
+            for (j = 0; j < 50000; j++) {
+                sum = sum + 1;
+            }
+        }
+        var b = performance.now();
+        document.getElementById("status").innerHTML += 'Test took ' + (b - a) + ' ms.</br>';
+        return;
+    }
+</script>
+</head>
+    <body>
+        <div class="main" align = "center">
+            <h2>Please click the button below and wait approximately 5-10 seconds for test to complete.</br>
+            Test results will be printed below.</br>
+            You may run the test as many times as you like</br></h2>
+            <input class="button" id="clickMe" type="button" value="Run Test" onclick="sum();" />
+            <h2><p id="status"></p></h2>
+        </div>
+    </body>
+</html>
